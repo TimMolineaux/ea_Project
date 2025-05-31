@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
@@ -24,6 +25,11 @@
         <td th:text="${event.organizer}">Organisator</td>
         <td>
             <a th:href="@{/events/{id}(id=${event.id})}">Meer info</a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <a href="/new">Nieuw evenement aanmaken</a>
         </td>
     </tr>
     </tbody>

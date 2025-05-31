@@ -65,7 +65,7 @@ public class EventController {
         }
 
         eventDAO.save(event);
-        return "redirect:/new";
+        return "redirect:/index";
     }
 
 }
