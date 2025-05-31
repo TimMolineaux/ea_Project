@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Anderlecht Community</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Titel</th>
+        <th>Beschrijving</th>
+        <th>Datum</th>
+        <th>Organiseerder</th>
+        <th>Contact</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="event : ${events}">
+        <td th:text="${event.title}">Titel</td>
+        <td th:text="${event.description}">Beschrijving</td>
+        <td th:text="${#temporals.format(event.date, 'dd/MM/yyyy HH:mm')}">Datum</td>
+        <td th:text="${event.organizer}">Organiseerder</td>
+        <td th:text="${event.contact}">Contact</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

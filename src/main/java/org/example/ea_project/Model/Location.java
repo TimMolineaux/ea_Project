@@ -12,20 +12,21 @@ import jakarta.validation.constraints.Size;
 public class Location {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @NotBlank(message = "Gelieve een naam in te vullen!")
-    @Size(max = 100, message = "Naam mag maximaal 100 tekens zijn")
+    @Size(max = 100, message = "Naam mag max. 100 karakters bevatten")
     private String name;
 
     @NotBlank(message = "Gelieve een adres in te vullen!")
-    @Size(max = 100, message = "Adres mag maximaal 100 tekens zijn")
+    @Size(max = 100, message = "Adres mag max. 100 karakters bevatten!")
     private String address;
 
     @NotNull
     private int capacity;
 
+    public Location() {}
 
     public Location(int id, String name, String address, int capacity) {
         this.id = id;
@@ -33,8 +34,6 @@ public class Location {
         this.address = address;
         this.capacity = capacity;
     }
-
-    public Location() {}
 
     public int getId() {
         return id;
