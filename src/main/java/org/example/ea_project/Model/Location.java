@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -22,7 +23,7 @@ public class Location {
     @Size(max = 100, message = "Adres mag maximaal 100 tekens zijn")
     private String address;
 
-    @NotBlank
+    @NotNull
     private int capacity;
 
 
