@@ -10,6 +10,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @Controller
 public class EventController {
 
@@ -24,7 +27,8 @@ public class EventController {
 
     @GetMapping({"", "/", "/index"})
     public String showEventList(ModelMap modelMap) {
-        modelMap.addAttribute("events", eventDAO.findAll());
+        List<Event> latestEvents = eventDAO.findTop10ByOrderByIdDesc();
+        modelMap.addAttribute("events", latestEvents);
         return "index";
     }
 
@@ -38,6 +42,17 @@ public class EventController {
     @GetMapping("/about")
     public String aboutPage() {
         return "about";
+    }
+
+    @GetMapping("/events/{id}")
+    public String eventDetail(@PathVariable int id, ModelMap modelMap) {
+        Optional<Event> event = eventDAO.findById(id);
+        if (event.isPresent()) {
+            modelMap.addAttribute("event", event.get());
+            return "details";
+        } else {
+            return "redirect:/";
+        }
     }
 
     @PostMapping("/new")
