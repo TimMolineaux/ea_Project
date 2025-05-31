@@ -35,6 +35,11 @@ public class EventController {
         return "new";
     }
 
+    @GetMapping("/about")
+    public String aboutPage() {
+        return "about";
+    }
+
     @PostMapping("/new")
     public String createEvent(@Valid @ModelAttribute("event") Event event,
                               BindingResult result,
