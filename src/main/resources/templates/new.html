@@ -6,6 +6,8 @@
 </head>
 <body>
 
+<div th:replace="layout :: navbar"></div>
+
 <h1>Nieuw Evenement Aanmaken</h1>
 
 <form th:action="@{/new}" th:object="${event}" method="post">
@@ -54,8 +56,7 @@
     </div>
 </form>
 
-<a href="/index">← Terug naar overzicht</a>
-</body>
+<div th:replace="layout :: footer"></div>
 
 </body>
 </html>
