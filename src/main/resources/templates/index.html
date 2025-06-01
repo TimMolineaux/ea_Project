@@ -2,12 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-<div th:replace="layout :: navbar"></div>
+<div th:insert="layout :: navbar"></div>
 
 <h1>Laatste evenementen</h1>
 
@@ -15,27 +15,27 @@
     <thead>
     <tr>
         <th>Naam</th>
-        <th>Organisator</th>
+        <th>Organisatie</th>
         <th>Meer info</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="event : ${events}">
-        <td th:text="${event.title}">Event Naam</td>
-        <td th:text="${event.organizer}">Organisator</td>
+        <td th:text="${event.title}">Titel</td>
+        <td th:text="${event.organizer}">Organisatie</td>
         <td>
             <a th:href="@{/events/{id}(id=${event.id})}">Meer info</a>
         </td>
     </tr>
     <tr>
-        <td colspan="3">
+        <td style="text-align: center" colspan="3">
             <a href="/new">Nieuw evenement aanmaken</a>
         </td>
     </tr>
     </tbody>
 </table>
 
-<div th:replace="layout :: footer"></div>
+<div th:insert="layout :: footer"></div>
 
 </body>
 </html>

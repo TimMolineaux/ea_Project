@@ -2,16 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title th:text="'Details van ' + ${event.title}">Event Detail</title>
+    <title th:text="${event.title}">Details</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <div th:replace="layout :: navbar"></div>
 
-<h1 th:text="${event.title}">Event Naam</h1>
+<h1 th:text="${event.title}">Titel</h1>
 
-<p><strong>Organisator:</strong> <span th:text="${event.organizer}"></span></p>
+<p><strong>Organisatie:</strong> <span th:text="${event.organizer}"></span></p>
 <p><strong>Datum:</strong> <span th:text="${#temporals.format(event.date, 'dd/MM/yyyy HH:mm')}"></span></p>
 <p><strong>Locatie:</strong> <span th:text="${event.location.name}"></span></p>
 <p><strong>Beschrijving:</strong></p>
