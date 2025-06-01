@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 public class Event {
